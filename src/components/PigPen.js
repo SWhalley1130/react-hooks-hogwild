@@ -18,14 +18,16 @@ function PigPen({hogs, searched, selectedCategory, searchedWeight})
         }
     }
 
-    let weightedHogs=hogs.filter(hog=>{
-        if (searchedWeight==='') return true;
-        return (parseFloat(searchedWeight)===parseFloat(hog.weight));
-    })
-
-    let sortedHogs = weightedHogs.filter(hog=>{
-        if(selectedCategory==="All") return true;
-        return `${hog.greased}`===`${selectedCategory }`;
+    let sortedHogs = hogs.filter(hog=>{
+        if (searchedWeight==='')
+        {
+            if(selectedCategory==="All") return true;
+            return `${hog.greased}`===`${selectedCategory }`
+        }
+        else 
+        {
+            return (parseFloat(searchedWeight)===parseFloat(hog.weight));
+        }
     })
 
     return (
