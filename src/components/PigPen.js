@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Pig from "./Pig";
 
-function PigPen({hogs, searched, selectedCategory})
+function PigPen({hogs, searched, selectedCategory, searchedWeight})
 {
     const [isChosenHog, setChosenHog]=useState('')
     
@@ -18,7 +18,14 @@ function PigPen({hogs, searched, selectedCategory})
         }
     }
 
-    let sortedHogs = hogs.filter(hog=>{
+    let weightedHogs=hogs.filter(hog=>{
+        if (typeof searchedWeight==='object') return true;
+        return (parseFloat(searchedWeight)===parseFloat(hog.weight));
+    })
+
+    console.log(weightedHogs)
+
+    let sortedHogs = weightedHogs.filter(hog=>{
         if(selectedCategory==="All") return true;
         return `${hog.greased}`===`${selectedCategory }`;
     })
