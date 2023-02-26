@@ -1,20 +1,31 @@
 import React, {useState} from "react";
 import Pig from "./Pig";
 
-function PigPen({hogs, searched})
+function PigPen({hogs, searched, selectedCategory})
 {
     const [isChosenHog, setChosenHog]=useState('')
     
 
-    function handleClick(id)
+    function handleClick(name)
     {
-        console.log('click handled', id)
-        setChosenHog(id)
+        if (name===isChosenHog)
+        {
+            setChosenHog('')
+        }
+        else
+        {
+            setChosenHog(name)
+        }
     }
+
+    let sortedHogs = hogs.filter(hog=>{
+        if(selectedCategory==="All") return true;
+        return `${hog.greased}`===`${selectedCategory }`;
+    })
 
     return (
         <div className="ui grid container">
-            {hogs.map(hog=>
+            {sortedHogs.map(hog=>
                 hog.name.toLowerCase().includes(searched.toLowerCase()) ? 
                 <Pig 
                     isChosenHog={isChosenHog} 

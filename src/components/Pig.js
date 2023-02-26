@@ -5,7 +5,6 @@ function Pig({name, image, handleClick, isChosenHog, specialty, weight, greased,
 
     return (
         <div 
-            id={name}
             onClick={() => handleClick(name)}
             className="ui eight wide column ui card"
         >
