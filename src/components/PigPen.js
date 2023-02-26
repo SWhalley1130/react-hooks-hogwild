@@ -19,11 +19,9 @@ function PigPen({hogs, searched, selectedCategory, searchedWeight})
     }
 
     let weightedHogs=hogs.filter(hog=>{
-        if (typeof searchedWeight==='object') return true;
+        if (searchedWeight==='') return true;
         return (parseFloat(searchedWeight)===parseFloat(hog.weight));
     })
-
-    console.log(weightedHogs)
 
     let sortedHogs = weightedHogs.filter(hog=>{
         if(selectedCategory==="All") return true;
