@@ -1,11 +1,29 @@
 import React from "react";
 
-function Pig({name, image})
+function Pig({name, image, handleClick, isChosenHog, specialty, weight, greased, medal})
 {
+
     return (
-        <div className="ui eight wide column ui card" style={{'margin-top':'1 em 0'}}>
-            <h3>{name}</h3>
-            <img style={{'width':'inherit', 'height':'inherit'}} src={image} alt="Pig Pic"/>
+        <div 
+            id={name}
+            onClick={() => handleClick(name)}
+            className="ui eight wide column ui card"
+        >
+            {
+                isChosenHog === name ? 
+                    <>
+                        <h3>{name}</h3>
+                        <p>Specialty: {specialty}</p>
+                        <p>Greased: {greased ? "Yes" : "No"}</p>
+                        <p>Weight: {weight}</p>
+                        <p>Highest Medal: {medal}</p>
+                    </>
+                    :
+                    <>
+                        <h3>{name}</h3>
+                        <img style={{'width':'inherit', 'height':'inherit'}} src={image} alt="Pig Pic"/>
+                    </>
+            }
         </div>
     )
 }
