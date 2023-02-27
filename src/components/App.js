@@ -7,7 +7,7 @@ import hogs from "../porkers_data";
 function App() {
 
 	const [searched, setSearched]=useState("");
-	const [searchedWeight, setSearchedWeight]=useState(null)
+	const [searchedWeight, setSearchedWeight]=useState("")
 	const [selectedCategory, setSelectedCategory]=useState('All')
 	
 	return (

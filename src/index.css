@@ -9,6 +9,11 @@ body {
   text-align: center;
 }
 
+.ui.card:last-child {
+  margin-bottom: none;
+  margin: 1em 0;
+}
+
 .TwirlyPig {
   transition: all 3s ease-in-out;
   display: inline;
